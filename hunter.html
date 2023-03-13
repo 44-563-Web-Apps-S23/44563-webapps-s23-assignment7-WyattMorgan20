@@ -92,30 +92,31 @@
     else{
       document.getElementById(ids[position]).src = "grass.jpg"
       checkCount += 1
+      penalty += 1
     }
     document.getElementById("penalty").innerHTML = "Penalty is " + penalty
     document.getElementById("bushes").innerHTML = "Number of bushes checked is " + checkCount
     
     }
 
-    lastchecked = position
+    lastCheck = position
 
 
   }
 
   function help(){
-    var row = parseInt(lastCheck / 4) - 1
+    var row = Math.floor(lastCheck / 6)
     var column = lastCheck % 6
-    var catRow = parseInt(catLocation / 4) - 1
+    var catRow = Math.floor(catLocation / 6)
     var catCol = catLocation % 6 
-    var mouseRow = parseInt(mouseLocation / 4) - 1
+    var mouseRow = Math.floor(mouseLocation / 6)
     var mouseCol = mouseLocation % 6
 
     if((Math.abs(catRow - row) <= 1) && (Math.abs(catCol - column) <= 1)){
       document.getElementById("help").innerHTML = "Help report: meow"
     }
     else if ((Math.abs(mouseRow - row) <= 1) && (Math.abs(mouseCol - column) <= 1)){
-      document.getElementById("help").innerHTML = "Help report: squek"
+      document.getElementById("help").innerHTML = "Help report: squeak"
     }
     else{
       document.getElementById("help").innerHTML = "Help report: sorry, no help available"
