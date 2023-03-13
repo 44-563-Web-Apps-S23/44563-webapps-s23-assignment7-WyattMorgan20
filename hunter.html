@@ -20,9 +20,10 @@
 <p>Click on the bushes to search for the mouse, beware the cat</p>
 
 <p id = "bushes">Number of bushes checked is zero.</p>
-<p id = "penelty">Penelty is zero.</p>
-<p>Click for help.</p>
+<p id = "penalty">Penalty is 0.</p>
+<p onclick = "help()">Click for help.</p>
 <p id = "help">Help Report</p>
+
 
 
 
@@ -63,48 +64,43 @@
 
 <script>
   var ids = ["bush0", "bush1", "bush2", "bush3", "bush4", "bush5", "bush6", "bush7", "bush8", "bush9", "bush10", "bush11", "bush12", "bush13", "bush14", "bush15", "bush16", "bush17", "bush18", "bush19", "bush20", "bush21", "bush22", "bush23"] 
-  var checkCount = zero
-  var penalty = zero
+  var checkCount = 0
+  var penalty = 0
   var lastCheck = 0
-  var mouseLocation = 21
-  var catLocation = 13
+  var mouseLocation = 13
+  var catLocation = 21
   var gameOver = false
 
 
   function check(position){
-    if(gameOver){
-      return
-    }
-    id = ids[position]
-    image = document.getElementById(id)
+
+
+    if(!gameOver){ 
 
     if(position == mouseLocation){
-      image.src = "mouse.jpg"
+      document.getElementById(ids[position]).src = "mouse.jpg"
+      checkCount += 1
+      penalty -= 3
+      gameOver = true
     }
     else if (position == catLocation){
-      image.src = "panther.jpeg"
+      document.getElementById(ids[position]).src = "panther.jpeg"
+      checkCount += 1
+      penalty += 4
+      gameOver = true
     }
     else{
-      image.src = "grass.jpg"
+      document.getElementById(ids[position]).src = "grass.jpg"
+      checkCount += 1
     }
-    checkCount++
-    penalty++
-
-    bushesElement = getElementById(id).innerHTML = "bushes"
-
-    if(position == mouseLocation){
-      gameOver = true
-      penalty -= 3
+    document.getElementById("penalty").innerHTML = "Penalty is " + penalty
+    document.getElementById("bushes").innerHTML = "Number of bushes checked is " + checkCount
+    
     }
 
-    if(position == catLocation){
-      gameOver = true
-      penalty += 4
-    }
+    lastchecked = position
 
-    penaltyElement = getElementById("penelty")
 
-    lastCheck = position
   }
 
   function help(){
