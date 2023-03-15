@@ -42,8 +42,7 @@
 	function makeNewDiv(){
 		/* make the div and its text */
 		let element = document.createElement("div")
-		element = document.getElementById("input")
-		element.innerHTML = element
+		element.innerHTML = document.getElementById("input").value
 		element.className = "delayQ"
 		element.style.color = "orange"
 
