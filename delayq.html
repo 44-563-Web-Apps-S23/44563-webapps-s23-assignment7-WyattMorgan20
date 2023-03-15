@@ -52,21 +52,27 @@
 	}
 
 	function get(){
-		const queueItems = [getElementByClassname("delayQ")]
-		arrayLenth = queueItems.arrayLength
-		if(arrayLength > 0){
-			queueItems.remove(0)
+		const queueItems = document.getElementsByClassName("delayQ")
+		arrLength = queueItems.length
+		if(arrLength > 0){
+			queueItems[0].remove()
 		}
 	}
 
 	function delay(){
-		const queueItems = [getElementByClassname("delayQ")]
-		arrayLength = queueItems.arrayLength
-		if(arrayLength == 0 || arrayLength == 1){
+		const queueItems = document.getElementsByClassName("delayQ")
+		arrLength = queueItems.length
+		if(arrLength == 0 || arrLength == 1){
 			return
 		}
 		else{
-			var removedItem = queueItems.remove(0)
+			var removedItem = queueItems[0]
+
+			console.log(removedItem);
+			queueItems[0].remove()
+
+			var container = document.getElementById('target')
+			container.appendChild(removedItem)
 		}
 	}
 </script>
