@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html> <head> 
+<title>Delay Queue</title>
+<style>
+    .flex-container {
+      display: flex;  flex-direction:row;
+      background-color: red;
+  }
+
+.flex-container > div {  /*div children of the flex container*/
+  background-color: #f1f1f1; 
+  margin: 10px;  padding: 20px;  font-size: 30px;
+}
+
+/* Responsive layout */
+@media (max-width: 600px) { 
+	 .flex-container{
+		 flex-direction:column;
+		 background-color: green;
+	  }
+	}
+</style></head>
+
+
+
+<body>
+	<h1>Wyatt Morgan builds a delaying queue</h1>
+	<input type = "text" id = "input">
+		<div class="flex-container" id="target">
+		  <div class = "delayQ">row item 1</div>   
+		  <div class = "delayQ">row item 2</div>  
+		  <div class = "delayQ">row item 3</div>  
+		</div>
+	
+	<p> Press the button to create an new element of type div and then add it to the container.</p>
+		<button onclick="makeNewDiv()">Add value</button>
+		<button onclick="get()">Get</button>
+		<button onclick="delay()">Delay</button>
+	
+</body>
+<script>
+	function makeNewDiv(){
+		/* make the div and its text */
+		let element = document.createElement("div")
+		element = document.getElementById("input")
+		element.innerHTML = element
+		element.className = "delayQ"
+		element.style.color = "orange"
+
+		/* add it to the container */
+		let container = document.getElementById('target')
+		container.appendChild(element)		
+	}
+
+	function get(){
+		const queueItems = [getElementByClassname("delayQ")]
+		arrayLenth = queueItems.arrayLength
+		if(arrayLength > 0){
+			queueItems.remove(0)
+		}
+	}
+
+	function delay(){
+		const queueItems = [getElementByClassname("delayQ")]
+		arrayLength = queueItems.arrayLength
+		if(arrayLength == 0 || arrayLength == 1){
+			return
+		}
+		else{
+			var removedItem = queueItems.remove(0)
+		}
+	}
+</script>
+</html>	

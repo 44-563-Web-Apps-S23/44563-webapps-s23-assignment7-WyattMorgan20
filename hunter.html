@@ -77,25 +77,25 @@
 
     if(!gameOver){ 
 
-    if(position == mouseLocation){
-      document.getElementById(ids[position]).src = "mouse.jpg"
-      checkCount += 1
-      penalty -= 3
-      gameOver = true
-    }
-    else if (position == catLocation){
-      document.getElementById(ids[position]).src = "panther.jpeg"
-      checkCount += 1
-      penalty += 4
-      gameOver = true
-    }
-    else{
-      document.getElementById(ids[position]).src = "grass.jpg"
-      checkCount += 1
-      penalty += 1
-    }
-    document.getElementById("penalty").innerHTML = "Penalty is " + penalty
-    document.getElementById("bushes").innerHTML = "Number of bushes checked is " + checkCount
+      if(position == mouseLocation){
+        document.getElementById(ids[position]).src = "mouse.jpg"
+        checkCount += 1
+        penalty -= 3
+        gameOver = true
+      }
+      else if (position == catLocation){
+        document.getElementById(ids[position]).src = "panther.jpeg"
+        checkCount += 1
+        penalty += 4
+        gameOver = true
+      }
+      else{
+        document.getElementById(ids[position]).src = "grass.jpg"
+        checkCount += 1
+        penalty += 1
+      }
+      document.getElementById("penalty").innerHTML = "Penalty is " + penalty
+      document.getElementById("bushes").innerHTML = "Number of bushes checked is " + checkCount
     
     }
 
